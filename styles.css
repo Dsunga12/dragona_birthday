@@ -6,7 +6,7 @@
   --gold: #c89b4f;
   --ink: #392529;
   --muted: #7c6266;
-  --paper: rgba(255, 253, 248, 0.86);
+  --paper: rgba(255, 253, 248, 0.88);
   --line: rgba(173, 76, 99, 0.18);
   --shadow: 0 26px 70px rgba(85, 39, 48, 0.18);
 }
@@ -32,13 +32,9 @@ body {
   overflow-x: hidden;
 }
 
-button,
-textarea {
-  font: inherit;
-}
-
 button {
   border: 0;
+  font: inherit;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -141,8 +137,7 @@ h2 {
 
 .question-copy,
 .music-card p:not(.tiny),
-.message-side p,
-.ending-message p {
+.letter-text {
   color: var(--muted);
   line-height: 1.75;
 }
@@ -152,8 +147,7 @@ h2 {
 }
 
 .question-actions,
-.music-actions,
-.story-actions {
+.music-actions {
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -168,38 +162,34 @@ h2 {
 
 .yes-btn,
 .no-btn,
-.next-btn,
 .back-btn,
 .restart-btn,
-.song-toggle {
+.next-text-btn {
   min-width: 118px;
   padding: 15px 24px;
   border-radius: 999px;
   font-weight: 900;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, left 0.18s ease, top 0.18s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, left 0.18s ease, top 0.18s ease, opacity 0.2s ease;
 }
 
 .yes-btn,
-.next-btn,
-.restart-btn {
+.restart-btn,
+.next-text-btn {
   color: #fff;
   background: linear-gradient(135deg, var(--rose-dark), var(--rose), var(--gold));
   box-shadow: 0 18px 34px rgba(173, 76, 99, 0.24);
 }
 
-.no-btn,
-.back-btn,
-.song-toggle {
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--line);
+.yes-btn.locked {
+  opacity: 0.55;
 }
 
+.no-btn,
+.back-btn,
 .yes-btn:hover,
-.next-btn:hover,
 .back-btn:hover,
 .restart-btn:hover,
-.song-toggle:hover {
+.next-text-btn:hover {
   transform: translateY(-2px);
 }
 
@@ -211,38 +201,11 @@ h2 {
 .story-screen {
   min-height: 100vh;
   padding: 18px;
-}
-
-.top-bar {
-  width: min(1180px, 100%);
-  margin: 0 auto 18px;
-  padding: 12px 14px 12px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: var(--paper);
-  box-shadow: 0 12px 28px rgba(85, 39, 48, 0.08);
-}
-
-.top-bar span {
-  display: block;
-  color: var(--rose-dark);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.top-bar strong {
-  display: block;
-  margin-top: 3px;
+  position: relative;
 }
 
 .photo-story {
-  min-height: calc(100vh - 94px);
+  min-height: calc(100vh - 36px);
   width: min(1180px, 100%);
   margin: 0 auto;
   display: grid;
@@ -267,7 +230,7 @@ h2 {
 
 .photo-frame {
   width: 100%;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 92px);
   min-height: 560px;
   padding: 0;
   overflow: hidden;
@@ -297,49 +260,34 @@ h2 {
 }
 
 .message-side {
-  padding: clamp(24px, 4vw, 42px);
+  padding: clamp(28px, 5vw, 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.progress {
-  margin: 0 0 16px;
-  color: var(--gold) !important;
-  font-weight: 900;
-}
-
-.message-side h2 {
-  margin-bottom: 18px;
-}
-
-#messageText {
-  min-height: 90px;
-}
-
-textarea {
-  width: 100%;
-  min-height: 150px;
-  margin: 14px 0 20px;
-  padding: 16px;
+#typedMessage {
+  min-height: 280px;
+  margin: 0;
   color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.68);
-  resize: vertical;
-  line-height: 1.6;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.1rem, 4.4vw, 4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  white-space: pre-line;
 }
 
-textarea:focus {
-  outline: 3px solid rgba(240, 138, 163, 0.25);
+.next-text-btn {
+  align-self: flex-start;
+  margin-top: 28px;
 }
 
 .ending {
-  min-height: calc(100vh - 94px);
+  min-height: calc(100vh - 36px);
   width: min(1180px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(260px, 0.56fr) 1fr;
+  grid-template-columns: minmax(260px, 0.52fr) 1fr;
   gap: 22px;
   align-items: stretch;
 }
@@ -351,19 +299,27 @@ textarea:focus {
 .ending-photo img {
   width: 100%;
   height: 100%;
-  min-height: 560px;
+  min-height: 620px;
   object-fit: cover;
 }
 
 .ending-message {
-  padding: clamp(28px, 5vw, 56px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: clamp(24px, 5vw, 48px);
+  overflow-y: auto;
 }
 
-.ending-message textarea {
-  min-height: 190px;
+.letter-text {
+  max-width: 780px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  white-space: pre-line;
+}
+
+.letter-text strong {
+  color: var(--ink);
+}
+
+.restart-btn {
+  margin-top: 24px;
 }
 
 .music-modal {
@@ -411,12 +367,12 @@ textarea:focus {
   }
 
   .photo-frame {
-    height: 62vh;
+    height: 60vh;
     min-height: 420px;
   }
 
-  .message-side {
-    justify-content: flex-start;
+  #typedMessage {
+    min-height: 170px;
   }
 
   .ending-photo img {
@@ -439,16 +395,6 @@ textarea:focus {
     font-size: clamp(2.8rem, 15vw, 4.4rem);
   }
 
-  .top-bar {
-    border-radius: 20px;
-  }
-
-  .song-toggle {
-    min-width: auto;
-    padding: 11px 14px;
-    font-size: 0.84rem;
-  }
-
   .photo-side,
   .message-side,
   .ending-photo,
@@ -457,11 +403,14 @@ textarea:focus {
   }
 
   .photo-frame {
-    min-height: 360px;
+    min-height: 350px;
     border-radius: 20px;
   }
 
-  .story-actions button,
+  #typedMessage {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
   .question-actions button {
     flex: 1;
   }
