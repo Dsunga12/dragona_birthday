@@ -259,13 +259,14 @@ h2 {
 }
 
 #typedMessage {
-  min-height: 280px;
+  max-height: calc(100vh - 170px);
+  overflow-y: auto;
   margin: 0;
   color: var(--ink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.1rem, 4.4vw, 4rem);
+  font-size: clamp(1.65rem, 3.05vw, 3rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.14;
   white-space: pre-line;
 }
 
@@ -330,7 +331,7 @@ h2 {
   }
 
   #typedMessage {
-    min-height: 170px;
+    max-height: none;
   }
 
   .ending-photo img {
@@ -366,7 +367,7 @@ h2 {
   }
 
   #typedMessage {
-    font-size: clamp(2rem, 10vw, 3.1rem);
+    font-size: clamp(1.55rem, 8vw, 2.45rem);
   }
 
   .question-actions button {
