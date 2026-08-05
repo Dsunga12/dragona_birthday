@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daniel & Ariane</title>
+  <meta name="description" content="A long-distance love surprise for Ariane from Daniel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <audio id="loveSong" src="assets/song.mp3" preload="auto" loop></audio>
+
+  <main>
+    <section class="hero" id="home">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#home">
+          <span>D</span>
+          <strong>Daniel & Ariane</strong>
+        </a>
+        <a href="#memories">Memories</a>
+        <a href="#distance">Distance</a>
+        <a href="#letter">Letter</a>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">April 12, 2017 - always choosing each other</p>
+          <h1>For the girl who still feels close, even from far away.</h1>
+          <p class="lead">
+            From a school hallway in Bataan to this long-distance chapter between the Philippines and Dubai,
+            every memory reminds me that what we have is stronger than miles.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="openSurprise" type="button">Open the surprise</button>
+            <a class="ghost-btn" href="#memories">See our memories</a>
+          </div>
+          <div class="counter-card" aria-live="polite">
+            <span id="daysTogether">0</span>
+            <p>days since our anniversary</p>
+          </div>
+        </div>
+
+        <div class="hero-photo" aria-label="Daniel and Ariane memory photo">
+          <div class="photo-ring">
+            <img src="assets/memory-08.jpg" alt="Daniel and Ariane smiling together">
+          </div>
+          <div class="floating-note">
+            <span>Orion, Bataan</span>
+            <span>Satwa, Dubai</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-intro reveal">
+      <p>
+        It started with one simple moment at school. You were just passing by my room, asking my classmate
+        where your friend was. I saw you once, then again during cheerdance practice, and somehow my heart
+        remembered you before I even knew how important you would become.
+      </p>
+    </section>
+
+    <section class="memories section reveal" id="memories">
+      <div class="section-heading">
+        <p class="eyebrow">Tap the photo</p>
+        <h2>Every picture has a little message.</h2>
+      </div>
+
+      <div class="memory-stage">
+        <div class="memory-photo-wrap">
+          <button class="photo-button" id="photoButton" type="button" aria-label="Show next memory">
+            <img id="memoryPhoto" src="assets/memory-01.jpg" alt="Daniel and Ariane memory">
+          </button>
+          <div class="sparkle one"></div>
+          <div class="sparkle two"></div>
+        </div>
+
+        <article class="memory-message" id="memoryMessage">
+          <p class="memory-count" id="memoryCount">1 / 21</p>
+          <h3 id="memoryTitle">A beautiful chapter away from home</h3>
+          <p id="memoryText">
+            Even in another country, I still feel lucky to stand beside you and collect moments that feel like home.
+          </p>
+          <div class="memory-controls">
+            <button class="ghost-btn small" id="prevMemory" type="button">Previous</button>
+            <button class="primary-btn small" id="nextMemory" type="button">Next memory</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="dots" id="memoryDots" aria-label="Memory progress"></div>
+    </section>
+
+    <section class="distance section reveal" id="distance">
+      <div class="section-heading">
+        <p class="eyebrow">Long distance, same love</p>
+        <h2>Two places. One promise.</h2>
+      </div>
+
+      <div class="distance-map">
+        <div class="place-card">
+          <span>Daniel</span>
+          <strong>Orion, Bataan</strong>
+          <p>Philippines</p>
+        </div>
+        <div class="love-line" aria-hidden="true">
+          <span></span>
+        </div>
+        <div class="place-card">
+          <span>Ariane</span>
+          <strong>Satwa, Dubai</strong>
+          <p>United Arab Emirates</p>
+        </div>
+      </div>
+
+      <p class="distance-copy">
+        Distance can change the view outside our windows, but it cannot change the love we keep choosing.
+      </p>
+    </section>
+
+    <section class="timeline section reveal">
+      <div class="section-heading">
+        <p class="eyebrow">Our little timeline</p>
+        <h2>The moments I still keep.</h2>
+      </div>
+      <div class="timeline-list">
+        <article>
+          <span>First glimpse</span>
+          <h3>The hallway moment</h3>
+          <p>You passed by my room looking for your friend, and somehow that simple moment stayed with me.</p>
+        </article>
+        <article>
+          <span>Second chance</span>
+          <h3>Cheerdance practice</h3>
+          <p>I saw you again, and I asked my friend to help me take a picture with you.</p>
+        </article>
+        <article>
+          <span>April 12, 2017</span>
+          <h3>Our beginning</h3>
+          <p>The day that became ours, and the date I will always be thankful for.</p>
+        </article>
+        <article>
+          <span>Now</span>
+          <h3>Philippines to Dubai</h3>
+          <p>We may be far, but every day is still a quiet promise that I am here, loving you.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="letter section reveal" id="letter">
+      <div class="letter-card">
+        <p class="eyebrow">Hidden letter</p>
+        <h2>A space for the words I want you to keep.</h2>
+        <button class="primary-btn" id="openLetter" type="button">Open my letter</button>
+        <div class="letter-paper" id="letterPaper">
+          <p>My love,</p>
+          <p>
+            I will write my full letter here, but for now I want this page to remind you of something simple:
+            you are loved, missed, prayed for, and chosen.
+          </p>
+          <p>
+            No matter how many miles are between Orion and Dubai, my heart still knows where it belongs.
+            One day, we will no longer have to miss each other from afar.
+          </p>
+          <p class="signature">Always yours,<br>Daniel</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale reveal">
+      <div class="final-photo">
+        <img src="assets/memory-21-final.jpg" alt="Daniel and Ariane school memory">
+      </div>
+      <div class="final-copy">
+        <p class="eyebrow">Where it started</p>
+        <h2>From that young version of us to everything we are still becoming.</h2>
+        <p>
+          This is the last picture here because it reminds me of the beginning. Before distance, before all the waiting,
+          before every challenge, there was us. And I still choose us.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div class="music-modal" id="musicModal" role="dialog" aria-modal="true" aria-labelledby="musicTitle">
+    <div class="music-box">
+      <p class="eyebrow">A little song</p>
+      <h2 id="musicTitle">Play our song while you continue?</h2>
+      <p>It will loop softly in the background after you tap yes.</p>
+      <div class="music-actions">
+        <button class="primary-btn small" id="playMusic" type="button">Yes, play it</button>
+        <button class="ghost-btn small" id="skipMusic" type="button">Not now</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Pause or play music">Pause song</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
