@@ -1,5 +1,5 @@
 const memories = [
-  ["assets/memory-01.jpg", "Thank you for being patient with me, especially during the times when loving me was not easy."],
+  ["assets/memory-01.jpg", "Hi Love,thank you for being patient with me, especially during the times when loving me was not easy."],
   ["assets/memory-02.jpg", "Some people may only see our happy pictures, but only we know how much we have overcome to protect our relationship."],
   ["assets/memory-03.jpg", "Our relationship was never perfect. We had misunderstandings, arguments, and difficult moments, but we always found our way back to each other."],
   ["assets/memory-04.jpg", "We grew up together. You witnessed every version of me, and you still chose to stay by my side."],
