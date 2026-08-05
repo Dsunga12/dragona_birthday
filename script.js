@@ -1,5 +1,5 @@
 const memories = [
-  ["assets/memory-01.jpg", "Thank you for being patient with me, especially during the times when loving me was not easy."],
+  ["assets/memory-01.jpg", "Hi Love. first of all Thank you for being patient with me, especially during the times when loving me was not easy."],
   ["assets/memory-02.jpg", "Some people may only see our happy pictures, but only we know how much we have overcome to protect our relationship."],
   ["assets/memory-03.jpg", "Our relationship was never perfect. We had misunderstandings and difficult moments, but we always found our way back to each other."],
   ["assets/memory-04.jpg", "We grew up together. You witnessed every version of me, and you still chose to stay by my side."],
@@ -9,7 +9,7 @@ const memories = [
   ["assets/memory-08.jpg", "No matter how much time passes, I will always treasure the memories we created together. Every picture reminds me of how far we have come."],
   ["assets/memory-09.jpg", "Thank you for continuing to choose me, support me, and love me even when we cannot be together physically."],
   ["assets/memory-10.jpg", "Long distance is another challenge, but I believe we can overcome it just like everything we faced before."],
-  ["assets/memory-11.jpg", "Whenever life becomes difficult, we know that we are never alone because God is always our support."],
+  ["assets/memory-11.jpg", "Whenever life becomes difficult, we know that we are never alone because God is always our side."],
   ["assets/memory-12.jpg", "Our faith has helped us remain strong, especially during the moments when we felt tired, lost, or uncertain."],
   ["assets/memory-13.jpg", "The distance may separate us physically, but it can never erase the love and memories we have built for nine years."],
   ["assets/memory-14.jpg", "One of the greatest blessings in our relationship is that we share the same faith and devotion to our church."],
