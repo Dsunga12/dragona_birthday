@@ -19,42 +19,26 @@
       <div class="question-card">
         <p class="tiny">A small question before the surprise</p>
         <h1>Hi love, will you open this little gift from me?</h1>
-        <p class="question-copy">Choose carefully. One button is a little stubborn.</p>
+        <p class="question-copy" id="questionCopy">Click No first. I promise it is part of the surprise.</p>
         <div class="question-actions" id="questionActions">
-          <button class="yes-btn" id="yesButton" type="button">Yes</button>
+          <button class="yes-btn locked" id="yesButton" type="button">Yes</button>
           <button class="no-btn" id="noButton" type="button">No</button>
         </div>
       </div>
     </section>
 
     <section class="story-screen hidden" id="storyScreen" aria-live="polite">
-      <div class="top-bar">
-        <div>
-          <span>Daniel to Ariane</span>
-          <strong>April 12, 2017</strong>
-        </div>
-        <button class="song-toggle hidden" id="songToggle" type="button">Pause song</button>
-      </div>
-
       <section class="photo-story" id="photoStory">
         <div class="photo-side">
           <button class="photo-frame" id="photoFrame" type="button" aria-label="Go to next photo">
             <img id="memoryPhoto" src="assets/memory-01.jpg" alt="Daniel and Ariane memory">
           </button>
-          <p class="tap-hint" id="tapHint">Tap the photo or the button to continue</p>
+          <p class="tap-hint">Tap the photo to continue</p>
         </div>
 
         <article class="message-side">
-          <p class="progress" id="progressText">Photo 1 of 21</p>
-          <h2 id="messageTitle">Write your title here</h2>
-          <p id="messageText">
-            Write your message for this photo here. Replace this with your own words for Ariane.
-          </p>
-          <textarea id="messageDraft" aria-label="Editable message note"></textarea>
-          <div class="story-actions">
-            <button class="back-btn" id="backButton" type="button">Back</button>
-            <button class="next-btn" id="nextButton" type="button">Next photo</button>
-          </div>
+          <p id="typedMessage"></p>
+          <button class="next-text-btn" id="nextButton" type="button">Next</button>
         </article>
       </section>
 
@@ -63,13 +47,8 @@
           <img src="assets/memory-21-final.jpg" alt="Daniel and Ariane school memory">
         </div>
         <div class="ending-message">
-          <p class="tiny">The end</p>
-          <h2>Thank you for opening this, my love.</h2>
-          <p>
-            This is the last part. Write your final thank-you message here. Tell her what you want her to remember
-            after seeing every photo, every memory, and every little note.
-          </p>
-          <textarea id="endingDraft" aria-label="Editable final message note">Thank you for staying, for loving me, and for choosing us even when distance is hard. This is not just the end of the surprise. It is another reminder that I love you, always.</textarea>
+          <p class="tiny">Thank you, my love</p>
+          <div class="letter-text" id="endingLetter"></div>
           <button class="restart-btn" id="restartButton" type="button">View again</button>
         </div>
       </section>
@@ -80,7 +59,7 @@
     <div class="music-card">
       <p class="tiny">One more thing</p>
       <h2 id="musicTitle">Do you want music while reading?</h2>
-      <p>If she taps Yes, the song will play in the background while she clicks through the photos.</p>
+      <p>If you tap Yes, the song will play in the background while you click through the photos.</p>
       <div class="music-actions">
         <button class="yes-btn small" id="playMusic" type="button">Yes</button>
         <button class="back-btn small" id="skipMusic" type="button">No</button>
