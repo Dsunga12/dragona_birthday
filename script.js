@@ -9,7 +9,7 @@ const memories = [
   ["assets/memory-08.jpg", "No matter how much time passes, I will always treasure the memories we created together. Every picture reminds me of how far we have come."],
   ["assets/memory-09.jpg", "Thank you for continuing to choose me, support me, and love me even when we cannot be together physically."],
   ["assets/memory-10.jpg", "This long-distance relationship is another challenge for us, but I believe that we can overcome it just like all the struggles we faced before."],
-  ["assets/memory-11.jpg", "Whenever life becomes difficult, we know that we are never alone because God is always our support."],
+  ["assets/memory-11.jpg", "Whenever life becomes difficult, we know that we are never alone because God is always our side."],
   ["assets/memory-12.jpg", "Our faith has helped us remain strong, especially during the moments when we felt tired, lost, or uncertain."],
   ["assets/memory-13.jpg", "The distance may separate us physically, but it can never erase the love and memories we have built for nine years."],
   ["assets/memory-14.jpg", "One of the greatest blessings in our relationship is that we share the same faith and devotion to our church."],
