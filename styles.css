@@ -259,8 +259,9 @@ h2 {
 }
 
 #typedMessage {
-  max-height: calc(100vh - 170px);
+  max-height: calc(100vh - 150px);
   overflow-y: auto;
+  scrollbar-width: none;
   margin: 0;
   color: var(--ink);
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -268,6 +269,10 @@ h2 {
   font-weight: 700;
   line-height: 1.14;
   white-space: pre-line;
+}
+
+#typedMessage::-webkit-scrollbar {
+  display: none;
 }
 
 .next-text-btn {
