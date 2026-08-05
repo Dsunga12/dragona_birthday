@@ -54,10 +54,7 @@ const memoryPhoto = document.getElementById("memoryPhoto");
 const typedMessage = document.getElementById("typedMessage");
 const nextButton = document.getElementById("nextButton");
 const restartButton = document.getElementById("restartButton");
-const musicModal = document.getElementById("musicModal");
 const loveSong = document.getElementById("loveSong");
-const playMusic = document.getElementById("playMusic");
-const skipMusic = document.getElementById("skipMusic");
 const endingLetterBox = document.getElementById("endingLetter");
 
 let current = 0;
@@ -109,7 +106,7 @@ function openStory() {
 
   questionScreen.classList.add("hidden");
   storyScreen.classList.remove("hidden");
-  musicModal.classList.remove("hidden");
+  loveSong.play().catch(() => {});
   showMemory(0);
 }
 
@@ -140,14 +137,6 @@ function goNext() {
   showMemory(current + 1);
 }
 
-function playSong() {
-  loveSong.play().then(() => {
-    musicModal.classList.add("hidden");
-  }).catch(() => {
-    musicModal.classList.add("hidden");
-  });
-}
-
 yesButton.addEventListener("click", openStory);
 noButton.addEventListener("mouseenter", moveNoButton);
 noButton.addEventListener("touchstart", (event) => {
@@ -161,9 +150,6 @@ noButton.addEventListener("click", (event) => {
 
 photoFrame.addEventListener("click", goNext);
 nextButton.addEventListener("click", goNext);
-
-playMusic.addEventListener("click", playSong);
-skipMusic.addEventListener("click", () => musicModal.classList.add("hidden"));
 
 restartButton.addEventListener("click", () => {
   ending.classList.add("hidden");
