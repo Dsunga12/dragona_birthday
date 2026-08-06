@@ -28,7 +28,28 @@
     </section>
 
     <section class="story-screen hidden" id="storyScreen" aria-live="polite">
-      <section class="photo-story" id="photoStory">
+      <div class="petals" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <section class="intro-screen hidden" id="introScreen">
+        <div class="intro-card">
+          <p class="tiny">Before the photos</p>
+          <h2>Every memory here is a reason why I still choose you.</h2>
+          <p class="intro-copy">From April 12, 2017 until today, even with the distance, my heart has always known where home is.</p>
+          <div class="days-card">
+            <span id="daysTogether">0</span>
+            <small>days of choosing each other</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="photo-story hidden" id="photoStory">
         <div class="photo-side">
           <button class="photo-frame" id="photoFrame" type="button" aria-label="Go to next photo">
             <img id="memoryPhoto" src="assets/memory-01.jpg" alt="Daniel and Ariane memory">
@@ -48,8 +69,10 @@
         </div>
         <div class="ending-message">
           <p class="tiny">Thank you, my love</p>
+          <button class="letter-open-btn" id="openLetterButton" type="button">One last message for you</button>
           <div class="letter-text" id="endingLetter"></div>
-          <button class="restart-btn" id="restartButton" type="button">View again</button>
+          <p class="closing-line hidden" id="closingLine">Distance is temporary. Us is forever.</p>
+          <button class="restart-btn hidden" id="restartButton" type="button">View again</button>
         </div>
       </section>
     </section>
