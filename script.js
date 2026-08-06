@@ -49,6 +49,7 @@ const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 const introScreen = document.getElementById("introScreen");
 const daysTogether = document.getElementById("daysTogether");
+const startMemoriesButton = document.getElementById("startMemoriesButton");
 const photoStory = document.getElementById("photoStory");
 const ending = document.getElementById("ending");
 const photoFrame = document.getElementById("photoFrame");
@@ -64,7 +65,6 @@ const closingLine = document.getElementById("closingLine");
 let current = 0;
 let triedNo = false;
 let typeTimer = null;
-let introTimer = null;
 
 function typeWords(element, text, speed = 34, onDone) {
   window.clearInterval(typeTimer);
@@ -127,13 +127,12 @@ function openStory() {
   ending.classList.add("hidden");
   updateDaysTogether();
   loveSong.play().catch(() => {});
+}
 
-  window.clearTimeout(introTimer);
-  introTimer = window.setTimeout(() => {
-    introScreen.classList.add("hidden");
-    photoStory.classList.remove("hidden");
-    showMemory(0);
-  }, 3400);
+function startMemories() {
+  introScreen.classList.add("hidden");
+  photoStory.classList.remove("hidden");
+  showMemory(0);
 }
 
 function showMemory(index) {
@@ -155,6 +154,7 @@ function goNext() {
   if (current >= memories.length - 1) {
     photoStory.classList.add("hidden");
     ending.classList.remove("hidden");
+    ending.classList.remove("letter-mode");
     openLetterButton.classList.remove("hidden");
     restartButton.classList.add("hidden");
     closingLine.classList.add("hidden");
@@ -168,6 +168,8 @@ function goNext() {
 
 function revealLetter() {
   openLetterButton.classList.add("hidden");
+  ending.classList.add("letter-mode");
+  window.scrollTo({ top: 0, behavior: "smooth" });
   typeWords(endingLetterBox, endingLetter, 18, () => {
     closingLine.classList.remove("hidden");
     restartButton.classList.remove("hidden");
@@ -185,13 +187,18 @@ noButton.addEventListener("click", (event) => {
   moveNoButton();
 });
 
+introScreen.addEventListener("click", startMemories);
+startMemoriesButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  startMemories();
+});
 photoFrame.addEventListener("click", goNext);
 nextButton.addEventListener("click", goNext);
 openLetterButton.addEventListener("click", revealLetter);
 
 restartButton.addEventListener("click", () => {
-  window.clearTimeout(introTimer);
   ending.classList.add("hidden");
+  ending.classList.remove("letter-mode");
   introScreen.classList.add("hidden");
   photoStory.classList.remove("hidden");
   openLetterButton.classList.remove("hidden");
