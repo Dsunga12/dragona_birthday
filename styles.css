@@ -327,6 +327,22 @@ h2 {
   font-weight: 800;
 }
 
+.intro-start-btn {
+  margin-top: 30px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--rose-dark), var(--rose), var(--gold));
+  box-shadow: 0 18px 34px rgba(173, 76, 99, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro-start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 42px rgba(173, 76, 99, 0.28);
+}
+
 @keyframes intro-rise {
   from {
     transform: translateY(18px);
@@ -435,6 +451,19 @@ h2 {
   align-items: stretch;
   position: relative;
   z-index: 1;
+}
+
+.ending.letter-mode {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ending.letter-mode .ending-photo {
+  display: none;
+}
+
+.ending.letter-mode .ending-message {
+  width: min(920px, 100%);
+  margin: 0 auto;
 }
 
 .ending-photo {
