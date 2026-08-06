@@ -1,5 +1,5 @@
 const memories = [
-  ["assets/memory-01.jpg", "Hi Love. first of all Thank you for being patient with me, especially during the times when loving me was not easy."],
+  ["assets/memory-01.jpg", "Hi Love, first of all Thank you for being patient with me, especially during the times when loving me was not easy."],
   ["assets/memory-02.jpg", "Some people may only see our happy pictures, but only we know how much we have overcome to protect our relationship."],
   ["assets/memory-03.jpg", "Our relationship was never perfect. We had misunderstandings and difficult moments, but we always found our way back to each other."],
   ["assets/memory-04.jpg", "We grew up together. You witnessed every version of me, and you still chose to stay by my side."],
@@ -47,21 +47,26 @@ const storyScreen = document.getElementById("storyScreen");
 const questionCopy = document.getElementById("questionCopy");
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
+const introScreen = document.getElementById("introScreen");
+const daysTogether = document.getElementById("daysTogether");
 const photoStory = document.getElementById("photoStory");
 const ending = document.getElementById("ending");
 const photoFrame = document.getElementById("photoFrame");
 const memoryPhoto = document.getElementById("memoryPhoto");
 const typedMessage = document.getElementById("typedMessage");
 const nextButton = document.getElementById("nextButton");
+const openLetterButton = document.getElementById("openLetterButton");
 const restartButton = document.getElementById("restartButton");
 const loveSong = document.getElementById("loveSong");
 const endingLetterBox = document.getElementById("endingLetter");
+const closingLine = document.getElementById("closingLine");
 
 let current = 0;
 let triedNo = false;
 let typeTimer = null;
+let introTimer = null;
 
-function typeWords(element, text, speed = 34) {
+function typeWords(element, text, speed = 34, onDone) {
   window.clearInterval(typeTimer);
   element.textContent = "";
   let index = 0;
@@ -69,8 +74,19 @@ function typeWords(element, text, speed = 34) {
   typeTimer = window.setInterval(() => {
     element.textContent += text.charAt(index);
     index += 1;
-    if (index >= text.length) window.clearInterval(typeTimer);
+    if (index >= text.length) {
+      window.clearInterval(typeTimer);
+      if (typeof onDone === "function") onDone();
+    }
   }, speed);
+}
+
+function updateDaysTogether() {
+  const anniversary = new Date(2017, 3, 12);
+  const today = new Date();
+  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const totalDays = Math.floor((todayStart - anniversary) / 86400000);
+  daysTogether.textContent = totalDays.toLocaleString();
 }
 
 function moveNoButton() {
@@ -106,8 +122,18 @@ function openStory() {
 
   questionScreen.classList.add("hidden");
   storyScreen.classList.remove("hidden");
+  introScreen.classList.remove("hidden");
+  photoStory.classList.add("hidden");
+  ending.classList.add("hidden");
+  updateDaysTogether();
   loveSong.play().catch(() => {});
-  showMemory(0);
+
+  window.clearTimeout(introTimer);
+  introTimer = window.setTimeout(() => {
+    introScreen.classList.add("hidden");
+    photoStory.classList.remove("hidden");
+    showMemory(0);
+  }, 3400);
 }
 
 function showMemory(index) {
@@ -129,12 +155,23 @@ function goNext() {
   if (current >= memories.length - 1) {
     photoStory.classList.add("hidden");
     ending.classList.remove("hidden");
+    openLetterButton.classList.remove("hidden");
+    restartButton.classList.add("hidden");
+    closingLine.classList.add("hidden");
+    endingLetterBox.textContent = "";
     window.scrollTo({ top: 0, behavior: "smooth" });
-    typeWords(endingLetterBox, endingLetter, 18);
     return;
   }
 
   showMemory(current + 1);
+}
+
+function revealLetter() {
+  openLetterButton.classList.add("hidden");
+  typeWords(endingLetterBox, endingLetter, 18, () => {
+    closingLine.classList.remove("hidden");
+    restartButton.classList.remove("hidden");
+  });
 }
 
 yesButton.addEventListener("click", openStory);
@@ -150,10 +187,17 @@ noButton.addEventListener("click", (event) => {
 
 photoFrame.addEventListener("click", goNext);
 nextButton.addEventListener("click", goNext);
+openLetterButton.addEventListener("click", revealLetter);
 
 restartButton.addEventListener("click", () => {
+  window.clearTimeout(introTimer);
   ending.classList.add("hidden");
+  introScreen.classList.add("hidden");
   photoStory.classList.remove("hidden");
+  openLetterButton.classList.remove("hidden");
+  restartButton.classList.add("hidden");
+  closingLine.classList.add("hidden");
+  endingLetterBox.textContent = "";
   showMemory(0);
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
