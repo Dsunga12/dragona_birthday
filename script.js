@@ -61,6 +61,7 @@ const restartButton = document.getElementById("restartButton");
 const loveSong = document.getElementById("loveSong");
 const endingLetterBox = document.getElementById("endingLetter");
 const closingLine = document.getElementById("closingLine");
+const birthdayReveal = document.getElementById("birthdayReveal");
 
 let current = 0;
 let triedNo = false;
@@ -158,6 +159,7 @@ function goNext() {
     openLetterButton.classList.remove("hidden");
     restartButton.classList.add("hidden");
     closingLine.classList.add("hidden");
+    birthdayReveal.classList.add("hidden");
     endingLetterBox.textContent = "";
     window.scrollTo({ top: 0, behavior: "smooth" });
     return;
@@ -172,6 +174,7 @@ function revealLetter() {
   window.scrollTo({ top: 0, behavior: "smooth" });
   typeWords(endingLetterBox, endingLetter, 18, () => {
     closingLine.classList.remove("hidden");
+    birthdayReveal.classList.remove("hidden");
     restartButton.classList.remove("hidden");
   });
 }
@@ -204,6 +207,7 @@ restartButton.addEventListener("click", () => {
   openLetterButton.classList.remove("hidden");
   restartButton.classList.add("hidden");
   closingLine.classList.add("hidden");
+  birthdayReveal.classList.add("hidden");
   endingLetterBox.textContent = "";
   showMemory(0);
   window.scrollTo({ top: 0, behavior: "smooth" });
