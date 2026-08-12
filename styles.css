@@ -526,6 +526,28 @@ h2 {
   line-height: 1;
 }
 
+.birthday-reveal {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  animation: intro-rise 0.65s ease both;
+}
+
+.birthday-reveal h2 {
+  max-width: 780px;
+  color: var(--rose-dark);
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  line-height: 0.95;
+}
+
+.birthday-reveal img {
+  width: min(620px, 100%);
+  margin-top: 24px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
 @media (max-width: 860px) {
   .story-screen {
     padding: 10px;
